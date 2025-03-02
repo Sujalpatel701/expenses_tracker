@@ -10,8 +10,10 @@ function Auth({ setIsAuthenticated }) {
   async function handleAuth(event) {
     event.preventDefault();
   
-    const endpoint = isLogin ? "http://localhost:3000/api/login" : "http://localhost:3000/api/signup";
-  
+    const endpoint = isLogin 
+    ? `${import.meta.env.VITE_API_URL}/api/login` 
+    : `${import.meta.env.VITE_API_URL}/api/signup`;
+    
     const response = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

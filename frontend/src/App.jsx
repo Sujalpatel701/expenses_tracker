@@ -25,8 +25,8 @@ function App() {
 
   
   function fetchBills(email) {
-    fetch(`http://localhost:3000/api/get-bills?email=${email}`)
-      .then((response) => response.json())
+    fetch(`${import.meta.env.VITE_API_URL}/api/get-bills?email=${email}`)
+    .then((response) => response.json())
       .then((data) => {
         console.log("Fetched Bills:", data); // Debugging log
         if (data.data) {
@@ -51,7 +51,7 @@ function App() {
 
     const billData = { name, datetime, desc, email: userEmail };
 
-    fetch("http://localhost:3000/api/add-bill", {
+    fetch(`${import.meta.env.VITE_API_URL}/api/add-bill`, {  
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(billData),

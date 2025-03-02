@@ -100,6 +100,10 @@ app.get("/api/get-bills", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Bill Tracker API");
+});
+
 // **Start Server After DB Connection**
 const startServer = async () => {
   await connectDB();
